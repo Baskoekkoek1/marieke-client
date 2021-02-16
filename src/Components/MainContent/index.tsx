@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "../../index.module.scss";
+import Social from "../Social";
 
 export default function MainContent() {
   return (
     <div id={styles.mainContent}>
       <img id={styles.profilePic} src={"marieke_profilePic.jpg"} />
+      <Social />
       <h1 id={styles.mainContentTitle}>Ik ben Marieke Koekkoek</h1>
       <div id={styles.contentContainer}>
         <p className={styles.mainText}>
