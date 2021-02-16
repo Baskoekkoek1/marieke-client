@@ -3,12 +3,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import styles from "./index.module.scss";
 import Header from "./Components/Header";
+import MainContent from "./Components/MainContent";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <img id={styles.profilePic} src={"marieke_profilePic.jpg"} />
+      <MainContent />
     </div>
   );
 }
