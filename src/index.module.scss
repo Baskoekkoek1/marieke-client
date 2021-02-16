@@ -67,3 +67,53 @@
   font-size: 12px;
   margin: 10px;
 }
+
+#voltInfo {
+  background-color: #4e2277;
+  min-height: 290px;
+}
+
+#voltContainer {
+  margin-top: 100px;
+}
+
+#voltTitleContainer {
+  border: solid #4e2277;
+  color: white;
+  font-weight: bolder;
+  font-size: 24px;
+  padding-top: 25px;
+}
+
+#voltInfoText {
+  color: white;
+  font-size: 24px;
+  font-weight: 10px;
+  max-width: 80vw;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+#voltButtonContainer {
+  padding: 25px;
+}
+
+.voltButton {
+  display: inline-block;
+  vertical-align: middle;
+  background: #fff;
+  color: #1c1b1b;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  padding: 10px 40px;
+  margin: 10px;
+  border-radius: 40px;
+}
+
+.voltButton:hover {
+  background: #e63e12;
+  color: #4e2277;
+}
