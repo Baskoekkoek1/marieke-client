@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../index.module.scss";
 import Social from "../Social";
+import VoltInfo from "../VoltInfo";
 
 export default function MainContent() {
   return (
@@ -8,6 +9,7 @@ export default function MainContent() {
       <img id={styles.profilePic} src={"marieke_profilePic.jpg"} />
       <Social />
       <h1 id={styles.mainContentTitle}>Ik ben Marieke Koekkoek</h1>
+
       <div id={styles.contentContainer}>
         <p className={styles.mainText}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -20,6 +22,10 @@ export default function MainContent() {
           laborum.
         </p>
       </div>
+      <div id={styles.buttonContainer}>
+        <div className={styles.button}>Meer over mij</div>
+      </div>
+      <VoltInfo />
     </div>
   );
 }
