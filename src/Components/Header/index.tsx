@@ -6,7 +6,10 @@ export default function Header() {
     <div id={styles.header}>
       <div id={styles.siteTitle}>
         <h1 id={styles.title}>MARIEKE KOEKKOEK</h1>
-        <h2 id={styles.slogan}>Voor een tweede koekje bij de koffie</h2>
+        <h2 id={styles.slogan}>
+          "Nieuwe politiek is niet die van een leider, maar van vele leiders
+          samen."
+        </h2>
       </div>
       <div id={styles.logoContainer}>
         <img id={styles.logo} src={"voltLogo.png"} />

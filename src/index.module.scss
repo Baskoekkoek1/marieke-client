@@ -23,7 +23,7 @@
 }
 
 #title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
   line-height: 1.2;
   margin: 0;
@@ -31,10 +31,11 @@
 }
 
 #slogan {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   margin: 0;
   color: #4e2277;
+  font-style: italic;
 }
 
 #mainContent {
@@ -114,6 +115,25 @@
 }
 
 .voltButton:hover {
+  background: #e63e12;
+  color: #4e2277;
+}
+
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  background: #4e2277;
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  padding: 10px 40px;
+  margin: 10px;
+  border-radius: 40px;
+}
+
+.button:hover {
   background: #e63e12;
   color: #4e2277;
 }
