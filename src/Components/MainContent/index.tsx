@@ -8,22 +8,32 @@ export default function MainContent() {
     <div id={styles.mainContent}>
       <img id={styles.profilePic} src={"marieke_profilePic.jpg"} />
       <Social />
-      <h1 id={styles.mainContentTitle}>Ik ben Marieke Koekkoek</h1>
+      <h1 id={styles.mainContentTitle}>Mijn naam is Marieke Koekkoek.</h1>
 
       <div id={styles.contentContainer}>
         <p className={styles.mainText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. <br />
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum.
+          32 jaar en ik sta op nr.4 op de kieslijst voor Volt. <br />
+          Ik ben kandidaat voor Volt, omdat ik de standpunten van Volt wil
+          uitdragen en wil omzetten in realiteit. Politiek gaat om wat je
+          doorgeeft aan de volgende generatie, en vooral ook om wat je niet
+          doorgeeft. <br /> Ik wil een betere bescherming van grondrechten
+          doorgeven en alle vormen van uitsluiting tegengaan. <br /> Door onder
+          andere een humaan migratiebeleid te garanderen, door betere
+          bescherming van LHBTI+-rechten en meer actief te werken aan
+          inclusiviteit en verbinding in Nederland en Europa. <br /> De garantie
+          dat je veilig jezelf kan zijn stopt namelijk niet bij de Nederlandse
+          grens.
         </p>
       </div>
       <div id={styles.buttonContainer}>
-        <div className={styles.button}>Meer over mij</div>
+        <a href="https://voltnederland.org/marieke-koekkoek">
+          <div className={styles.button}>
+            <p>Meer over mij</p>
+          </div>
+        </a>
+        <div className={styles.button}>
+          <p>Media</p>
+        </div>
       </div>
       <VoltInfo />
     </div>
