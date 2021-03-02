@@ -8,7 +8,7 @@ export default function MainContent() {
     <div id={styles.mainContent}>
       <img id={styles.profilePic} src={"marieke_profilePic.jpg"} />
       <Social />
-      <h1 id={styles.mainContentTitle}>Mijn naam is Marieke Koekkoek.</h1>
+      <h1 id={styles.mainContentTitle}>Mijn naam is Marieke Koekkoek,</h1>
 
       <div id={styles.contentContainer}>
         <p className={styles.mainText}>
@@ -31,9 +31,11 @@ export default function MainContent() {
             <p>Meer over mij</p>
           </div>
         </a>
-        <div className={styles.button}>
-          <p>Media</p>
-        </div>
+        <a href="/media">
+          <div className={styles.button}>
+            <p>Media</p>
+          </div>
+        </a>
       </div>
       <VoltInfo />
     </div>
