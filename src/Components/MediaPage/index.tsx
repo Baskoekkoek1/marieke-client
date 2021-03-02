@@ -32,24 +32,26 @@ export default function MediaPage() {
         {/* @ts-ignore */}
         {allLinks.map((link) => {
           return (
-            <Card className={styles.card}>
-              <Card.Header className={styles.cardHeader}>
-                {link.tag}
-              </Card.Header>
-              <Card.Img
-                variant="top"
-                src={link.imgLink}
-                className={styles.cardImg}
-              />
-              <Card.Body>
-                <Card.Title className={styles.cardTitle}>
-                  {link.title}
-                </Card.Title>
-                <Card.Text className={styles.cardText}>
-                  {link.description}
-                </Card.Text>
-              </Card.Body>
-            </Card>
+            <a className={styles.card} href={link.link}>
+              <Card>
+                <Card.Header className={styles.cardHeader}>
+                  {link.tag}
+                </Card.Header>
+                <Card.Img
+                  variant="top"
+                  src={link.imgLink}
+                  className={styles.cardImg}
+                />
+                <Card.Body>
+                  <Card.Title className={styles.cardTitle}>
+                    {link.title}
+                  </Card.Title>
+                  <Card.Text className={styles.cardText}>
+                    {link.description}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </a>
           );
         })}
       </CardDeck>
