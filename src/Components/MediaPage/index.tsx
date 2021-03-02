@@ -17,7 +17,7 @@ export default function MediaPage() {
   console.log("allLinks", allLinks);
   return (
     <div>
-      <h1 id={styles.mainContentTitle}>Marieke in de media</h1>
+      <h1 className={styles.mediaPageTitle}>Marieke in de media</h1>
       <CardDeck
         style={{
           display: "flex",
