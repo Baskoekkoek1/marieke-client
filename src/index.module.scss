@@ -62,7 +62,7 @@
 #footer {
   text-align: center;
   border-top: solid 1px #4e2277;
-  position: static;
+  position: fixed;
   bottom: 0px;
   clear: both;
   font-size: 12px;
@@ -173,4 +173,14 @@
 
 .cardHeader {
   float: right;
+}
+
+.videoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.video {
+  margin: 50px;
 }

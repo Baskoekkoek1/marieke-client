@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../index.module.scss";
 import Social from "../Social";
 import VoltInfo from "../VoltInfo";
+import ReactPlayer from "react-player";
 
 export default function MainContent() {
   return (
@@ -38,6 +39,16 @@ export default function MainContent() {
         </a>
       </div>
       <VoltInfo />
+      <div className={styles.videoContainer}>
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=Ra0Faw8bnxU"
+          className={styles.video}
+        />
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=Aj2MhKQ7ZBQ"
+          className={styles.video}
+        />
+      </div>
     </div>
   );
 }
