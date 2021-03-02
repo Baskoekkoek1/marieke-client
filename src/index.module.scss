@@ -140,6 +140,7 @@
 
 .card {
   background-color: white;
+  padding: 15px;
   color: #4e2277;
   border: solid 1px black;
 }
@@ -151,6 +152,8 @@
 .cardTitle {
   font-size: 25px;
   font-weight: bold;
+  margin: 5px;
+  margin-top: 10px;
 }
 
 .cardText {
