@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../../index.module.scss";
 import { fetchMediaLinks } from "../../store/mediaLinks/actions";
@@ -20,14 +21,20 @@ export default function MediaPage() {
       {/* @ts-ignore */}
       {allLinks.map((link) => {
         return (
-          <div key={link.id} className={styles.mediaLink}>
-            <h4>{link.title}</h4>
-            <img
-              src={link.imgLink}
-              alt={link.title}
-              className={styles.mediaLinkImg}
+          <Card style={{ width: "22rem" }} className={styles.card}>
+            <Card.Header className={styles.cardHeader}>{link.tag}</Card.Header>
+            <Card.Img
+              variant="top"
+              src="marieke.jpeg"
+              className={styles.cardImg}
             />
-          </div>
+            <Card.Body>
+              <Card.Title className={styles.cardTitle}>{link.title}</Card.Title>
+              <Card.Text className={styles.cardText}>
+                {link.description}
+              </Card.Text>
+            </Card.Body>
+          </Card>
         );
       })}
     </div>
