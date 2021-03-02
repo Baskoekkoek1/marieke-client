@@ -139,14 +139,24 @@
 }
 
 .card {
+  flex: 1;
+  margin: 10px;
   background-color: white;
   padding: 15px;
   color: #4e2277;
   border: solid 1px black;
+  display: inline-block;
+  min-width: 20vw;
+}
+
+.card:hover {
+  color: white;
+  background-color: #4e2277;
 }
 
 .cardImg {
   max-height: 20vh;
+  max-width: 20vw;
 }
 
 .cardTitle {
