@@ -7,7 +7,8 @@ import MainContent from "./Components/MainContent";
 import Footer from "./Components/Footer";
 import VoltInfo from "./Components/VoltInfo";
 import { Route, Switch } from "react-router-dom";
-import About from "./Components/About";
+import About from "./Components/MediaPage";
+import MediaPage from "./Components/MediaPage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={MainContent} />
-        <Route path="/over_mij" component={About} />
+        <Route path="/media" component={MediaPage} />
       </Switch>
       <Footer />
     </div>

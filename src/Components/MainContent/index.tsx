@@ -2,13 +2,14 @@ import React from "react";
 import styles from "../../index.module.scss";
 import Social from "../Social";
 import VoltInfo from "../VoltInfo";
+import ReactPlayer from "react-player";
 
 export default function MainContent() {
   return (
     <div id={styles.mainContent}>
       <img id={styles.profilePic} src={"marieke_profilePic.jpg"} />
       <Social />
-      <h1 id={styles.mainContentTitle}>Mijn naam is Marieke Koekkoek.</h1>
+      <h1 id={styles.mainContentTitle}>Mijn naam is Marieke Koekkoek,</h1>
 
       <div id={styles.contentContainer}>
         <p className={styles.mainText}>
@@ -31,11 +32,23 @@ export default function MainContent() {
             <p>Meer over mij</p>
           </div>
         </a>
-        <div className={styles.button}>
-          <p>Media</p>
-        </div>
+        <a href="/media">
+          <div className={styles.button}>
+            <p>Media</p>
+          </div>
+        </a>
       </div>
       <VoltInfo />
+      <div className={styles.videoContainer}>
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=Ra0Faw8bnxU"
+          className={styles.video}
+        />
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=Aj2MhKQ7ZBQ"
+          className={styles.video}
+        />
+      </div>
     </div>
   );
 }
