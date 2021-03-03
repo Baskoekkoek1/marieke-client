@@ -18,7 +18,7 @@ export default function MediaPage() {
   return (
     <div>
       <h1 className={styles.mediaPageTitle}>Marieke in de media</h1>
-      <CardDeck
+      {/* <CardDeck
         style={{
           display: "flex",
           flexWrap: "wrap",
@@ -28,7 +28,8 @@ export default function MediaPage() {
           padding: "50px",
           margin: "50px",
         }}
-      >
+      > */}
+      <CardDeck id={styles.cardDeck}>
         {/* @ts-ignore */}
         {allLinks.map((link) => {
           return (
