@@ -145,6 +145,12 @@
   color: #4e2277;
 }
 
+#cardDeck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 0.5rem;
+}
+
 .card {
   flex: 1;
   margin: 10px;
@@ -153,7 +159,6 @@
   color: #4e2277;
   border: solid 1px black;
   display: inline-block;
-  min-width: 20vw;
   text-decoration: none;
 }
 
