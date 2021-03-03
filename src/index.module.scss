@@ -1,13 +1,13 @@
 #profilePic {
   border-radius: 100%;
-  max-height: 350px;
+  max-height: 40vh;
   margin: 20px;
 }
 
 #header {
   text-align: left;
   margin: 30px;
-  min-height: 50px;
+  min-height: 20vh;
 }
 
 #siteTitle {
@@ -19,7 +19,7 @@
 }
 #logo {
   //   text-align: right;
-  max-width: 100px;
+  max-width: 7vw;
 }
 
 #title {
@@ -182,12 +182,43 @@
   float: right;
 }
 
+// .videoContainer {
+//   position: relative;
+//   padding-top: 56.25%;
+// }
+
+// .video {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
+
 .videoContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  overflow: hidden;
 }
 
-.video {
-  margin: 50px;
+.videoContainer {
+  min-height: 200px;
+  padding: 10px;
+  margin-left: 40px;
+}
+#videoOne {
+  background-color: gray;
+  float: left;
+  margin-right: 20px;
+  margin: 10px;
+}
+#videoTwo {
+  background-color: white;
+  overflow: hidden;
+  margin: 10px;
+  min-height: 10vh;
+}
+
+@media screen and (max-width: 400px) {
+  #videoOne {
+    float: none;
+    margin-right: 0;
+    width: auto;
+  }
 }

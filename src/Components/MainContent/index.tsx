@@ -42,11 +42,11 @@ export default function MainContent() {
       <div className={styles.videoContainer}>
         <ReactPlayer
           url="https://www.youtube.com/watch?v=Ra0Faw8bnxU"
-          className={styles.video}
+          id={styles.videoOne}
         />
         <ReactPlayer
           url="https://www.youtube.com/watch?v=Aj2MhKQ7ZBQ"
-          className={styles.video}
+          id={styles.videoTwo}
         />
       </div>
     </div>
