@@ -9,8 +9,13 @@ import VoltInfo from "./Components/VoltInfo";
 import { Route, Switch } from "react-router-dom";
 import About from "./Components/MediaPage";
 import MediaPage from "./Components/MediaPage";
+import { useSelector } from "react-redux";
+import { selectAppLoading } from "./store/appState/selectors";
+import Loading from "./Components/Loading";
 
 function App() {
+  const isLoading = useSelector(selectAppLoading);
+
   return (
     <div className="App">
       <Header />
@@ -18,7 +23,7 @@ function App() {
         <Route exact path="/" component={MainContent} />
         <Route path="/media" component={MediaPage} />
       </Switch>
-      <Footer />
+      {isLoading ? <Loading /> : <Footer />}
     </div>
   );
 }
