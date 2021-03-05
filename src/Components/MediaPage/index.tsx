@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Button, Card, CardDeck } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../../index.module.scss";
+import { selectAppLoading } from "../../store/appState/selectors";
 import { fetchMediaLinks } from "../../store/mediaLinks/actions";
 import { selectAllLinks } from "../../store/mediaLinks/selectors";
 
@@ -14,10 +15,12 @@ export default function MediaPage() {
     dispatch(fetchMediaLinks());
   }, []);
 
-  console.log("allLinks", allLinks);
+  const isLoading = useSelector(selectAppLoading);
   return (
     <div>
-      <h1 className={styles.mediaPageTitle}>Marieke in de media</h1>
+      <h1 className={styles.mediaPageTitle}>
+        {isLoading ? null : "Marieke in de media"}
+      </h1>
       {/* <CardDeck
         style={{
           display: "flex",
