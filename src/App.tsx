@@ -12,6 +12,7 @@ import MediaPage from "./Components/MediaPage";
 import { useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import Loading from "./Components/Loading";
+import Login from "./Components/Login";
 
 function App() {
   const isLoading = useSelector(selectAppLoading);
@@ -22,6 +23,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainContent} />
         <Route path="/media" component={MediaPage} />
+        <Route path="/login" component={Login} />
       </Switch>
       {isLoading ? <Loading /> : <Footer />}
     </div>
