@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { login } from "../../store/auth/actions";
+import { selectToken } from "../../store/auth/selectors";
 
 export default function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const token = useSelector(selectToken);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   function submitForm(event: React.MouseEvent<HTMLInputElement>) {
-    console.log("LOGIN", name, password);
+    event.preventDefault();
+    dispatch(login(name, password));
+    setName("");
+    setPassword("");
   }
+
+  useEffect(() => {
+    if (token !== null) {
+      history.push("/");
+    }
+  });
+
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
