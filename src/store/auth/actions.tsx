@@ -44,12 +44,14 @@ export const getUserWithStoredToken = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(tokenStillValid(response.data));
+      console.log("VALID TOKEN", response.data);
     } catch (error) {
       if (error.response) {
         console.log(error.response.message);
       } else {
         console.log(error);
       }
+      dispatch(userLogOut());
     }
   };
 };

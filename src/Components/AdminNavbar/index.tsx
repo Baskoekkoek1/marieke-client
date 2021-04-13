@@ -19,7 +19,11 @@ export default function () {
     <div>
       <Navbar bg="light" expand="lg">
         <Navbar.Brand href="#home">
-          {admin.name?.charAt(0).toUpperCase() + admin.name?.slice(1)}
+          Hallo
+          {" " +
+            admin.name?.charAt(0).toUpperCase() +
+            admin.name?.slice(1) +
+            "!"}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
