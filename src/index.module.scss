@@ -7,7 +7,7 @@
 #header {
   text-align: left;
   margin: 30px;
-  min-height: 20vh;
+  min-height: 7vh;
 }
 
 #siteTitle {
@@ -52,7 +52,7 @@
   font-size: 50px;
   font-weight: bolder;
   color: #4e2277;
-  margin-top: 75px;
+  // margin-top: 75px;
 }
 
 #contentContainer {
@@ -148,39 +148,52 @@
 #cardDeck {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-gap: 0.5rem;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0px;
 }
 
 .card {
   flex: 1;
-  margin: 10px;
+  margin: 5px;
   background-color: white;
-  padding: 15px;
+  padding: 0px;
   color: #4e2277;
-  border: solid 1px black;
+  border: solid 1px white;
   display: inline-block;
   text-decoration: none;
 }
 
-.card:hover {
-  color: white;
+// .card:hover {
+//   // color: white;
+//   background-color: #4e2277;
+//   text-decoration: none;
+// }
+
+.cardBody {
+  height: 100%;
+}
+
+.cardBody:hover {
   background-color: #4e2277;
+  color: white;
 }
 
 .cardImg {
   max-height: 20vh;
-  max-width: 20vw;
+  max-width: 10vw;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .cardTitle {
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: bolder;
   margin: 5px;
   margin-top: 10px;
 }
 
 .cardText {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .cardHeader {

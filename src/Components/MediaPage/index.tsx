@@ -37,7 +37,7 @@ export default function MediaPage() {
         {allLinks.map((link) => {
           return (
             <a key={link.id} className={styles.card} href={link.link}>
-              <Card>
+              <Card className={styles.cardBody}>
                 <Card.Header className={styles.cardHeader}>
                   {link.tag}
                 </Card.Header>
