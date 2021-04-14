@@ -1,23 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, CardDeck } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../../index.module.scss";
 import { selectAppLoading } from "../../store/appState/selectors";
+import { selectToken } from "../../store/auth/selectors";
 import { fetchMediaLinks } from "../../store/mediaLinks/actions";
 import { selectAllLinks } from "../../store/mediaLinks/selectors";
+import AddLinkForm from "./addLinkForm";
 
 export default function MediaPage() {
+  const [addLinkMode, setAddLinkMode] = useState(false);
+
   const dispatch = useDispatch();
 
   const allLinks = useSelector(selectAllLinks);
+  const isLoading = useSelector(selectAppLoading);
+  const token = useSelector(selectToken);
 
   useEffect(() => {
     dispatch(fetchMediaLinks());
   }, []);
 
-  const isLoading = useSelector(selectAppLoading);
   return (
     <div>
+      {addLinkMode ? <AddLinkForm /> : null}
+      {token && !addLinkMode ? (
+        <button onClick={() => setAddLinkMode(true)}>Link toevoegen</button>
+      ) : null}
       <h1 className={styles.mediaPageTitle}>
         {isLoading ? null : "Marieke in de media"}
       </h1>

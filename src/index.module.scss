@@ -46,6 +46,7 @@
   font-size: 50px;
   font-weight: bolder;
   color: #4e2277;
+  margin: 2rem;
 }
 
 .mediaPageTitle {
@@ -78,7 +79,7 @@
 
 #voltInfo {
   background-color: #4e2277;
-  min-height: 290px;
+  min-height: 30vh;
 }
 
 #voltContainer {
@@ -107,6 +108,11 @@
   padding: 25px;
 }
 
+#buttonContainer {
+  padding: 10px;
+  margin: 1px;
+}
+
 .voltButton {
   display: inline-block;
   vertical-align: middle;
@@ -119,6 +125,10 @@
   padding: 10px 40px;
   margin: 10px;
   border-radius: 40px;
+  text-align: center;
+  p {
+    margin-top: 1rem;
+  }
 }
 
 .voltButton:hover {
@@ -138,6 +148,9 @@
   padding: 10px 40px;
   margin: 10px;
   border-radius: 40px;
+  p {
+    margin-top: 1rem;
+  }
 }
 
 .button:hover {
@@ -148,26 +161,17 @@
 #cardDeck {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-column-gap: 0.5rem;
-  grid-row-gap: 0px;
+  grid-gap: 25px 0px;
+  margin: 2rem;
 }
 
 .card {
-  flex: 1;
-  margin: 5px;
   background-color: white;
-  padding: 0px;
   color: #4e2277;
   border: solid 1px white;
   display: inline-block;
   text-decoration: none;
 }
-
-// .card:hover {
-//   // color: white;
-//   background-color: #4e2277;
-//   text-decoration: none;
-// }
 
 .cardBody {
   height: 100%;
