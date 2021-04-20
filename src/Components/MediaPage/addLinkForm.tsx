@@ -85,11 +85,11 @@ export default function AddLinkForm() {
               placeholder="Afbeelding"
               required
             >
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Afbeelding
               </option>
-              {filteredLinks.map((filteredLink) => {
-                return <option>{filteredLink}</option>;
+              {filteredLinks.map((filteredLink, index) => {
+                return <option key={index}>{filteredLink}</option>;
               })}
             </Form.Control>
           </Form.Group>
