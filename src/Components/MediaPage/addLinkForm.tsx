@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Button, Col, Container, Form } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  postMediaLink,
+  toggleAddLinkMode,
+} from "../../store/mediaLinks/actions";
 import { selectAllLinks } from "../../store/mediaLinks/selectors";
 
-export default function AddLinkForm() {
+export default function AddLinkForm(linkMode: Function) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tag, setTag] = useState("");
@@ -11,6 +15,7 @@ export default function AddLinkForm() {
   const [imgLink, setImgLink] = useState("");
 
   const mediaLinks = useSelector(selectAllLinks);
+  const dispatch = useDispatch();
   //@ts-ignore
   const imgLinks = mediaLinks.map((link) => {
     return link.imgLink;
@@ -19,13 +24,18 @@ export default function AddLinkForm() {
   const filteredLinks = [...new Set(imgLinks)];
 
   const submitForm = () => {
-    console.log("form", title, description, tag, link, imgLink);
+    dispatch(postMediaLink(title, description, tag, link, imgLink));
     setTitle("");
     setDescription("");
     setTag("");
     setLink("");
     setImgLink("");
   };
+
+  const close = () => {
+    dispatch(toggleAddLinkMode());
+  };
+
   return (
     <div>
       <Container>
@@ -97,6 +107,9 @@ export default function AddLinkForm() {
           <Form.Group className="mt-5">
             <Button variant="primary" type="submit" onClick={submitForm}>
               Opslaan
+            </Button>
+            <Button variant="primary" type="submit" onClick={close}>
+              Sluiten
             </Button>
           </Form.Group>
         </Form>

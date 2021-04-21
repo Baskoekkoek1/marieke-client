@@ -28,23 +28,32 @@ export function fetchMediaLinks() {
   };
 }
 
+export function toggleAddLinkMode() {
+  return {
+    type: "TOGGLE_ADD_LINK_MODE",
+    payload: null,
+  };
+}
+
 export const postMediaLink = (
+  title: String,
   description: String,
-  imgLink: String,
-  link: String,
   tag: String,
-  title: String
+  link: String,
+  imgLink: String
 ) => {
   return async (dispatch: Function, getState: Function) => {
+    console.log("TEST_ACTION", title, description, tag, link, imgLink);
     const { token } = selectAdmin(getState());
     const response = await axios.post(
       `${apiUrl}/pages/medialink`,
-      { description, imgLink, link, tag, title },
+      { title, description, tag, link, imgLink },
       {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       }
     );
+    dispatch(postMediaLinkSuccess(response.data));
   };
 };

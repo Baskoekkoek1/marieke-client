@@ -8,9 +8,12 @@ type State = {
       link: string;
       imgLink: string;
     };
+    addLinkMode: boolean;
   };
 };
 
 export const selectAllLinks = (state: State) => state.mediaLinks.all_links;
+
+export const selectAddLinkMode = (state: State) => state.mediaLinks.addLinkMode;
 
 export {};
