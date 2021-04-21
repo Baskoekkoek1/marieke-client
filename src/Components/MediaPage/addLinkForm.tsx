@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { Button, Col, Container, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { selectAdmin } from "../../store/auth/selectors";
 import {
   postMediaLink,
   toggleAddLinkMode,
@@ -8,6 +9,11 @@ import {
 import { selectAllLinks } from "../../store/mediaLinks/selectors";
 
 export default function AddLinkForm(linkMode: Function) {
+  const admin = useSelector(selectAdmin);
+  const name = admin.name;
+  const nameCaps = name.charAt(0).toUpperCase() + name.slice(1);
+  const [message, setMessage] = useState("");
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tag, setTag] = useState("");
@@ -24,12 +30,18 @@ export default function AddLinkForm(linkMode: Function) {
   const filteredLinks = [...new Set(imgLinks)];
 
   const submitForm = () => {
-    dispatch(postMediaLink(title, description, tag, link, imgLink));
-    setTitle("");
-    setDescription("");
-    setTag("");
-    setLink("");
-    setImgLink("");
+    if (!title || !description || !tag || !link || !imgLink) {
+      setMessage(`Je bent iets vergeten, ${nameCaps}!`);
+    } else {
+      dispatch(postMediaLink(title, description, tag, link, imgLink));
+      setTitle("");
+      setDescription("");
+      setTag("");
+      setLink("");
+      setImgLink("");
+
+      setMessage("Nieuwe link toegevoegd!");
+    }
   };
 
   const close = () => {
@@ -41,6 +53,7 @@ export default function AddLinkForm(linkMode: Function) {
       <Container>
         <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
           <h1 className="mt-5 mb-5">Link toevoegen</h1>
+          <h3>{message}</h3>
           <Form.Group>
             <Form.Label>Titel</Form.Label>
             <Form.Control
