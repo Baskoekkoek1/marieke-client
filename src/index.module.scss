@@ -169,10 +169,14 @@
 
 .card {
   height: 100%;
+  // &:hover {
+  //   background-color: #4e2277;
+  // }
 }
 
 .cardBody {
   background-color: white;
+  height: 100%;
 
   :hover > & {
     background-color: #4e2277;
@@ -210,8 +214,8 @@
   color: #4e2277;
 }
 
-a a:hover {
-  text-decoration: none;
+.cardLink {
+  height: 100%;
 }
 
 //
@@ -220,9 +224,6 @@ a a:hover {
   margin: 5px;
 }
 
-// #deleteAlertContainer {
-//   position: relative;
-// }
 #deleteAlert {
   margin: 0 auto;
   position: relative;
