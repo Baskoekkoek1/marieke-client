@@ -158,6 +158,8 @@
   color: #4e2277;
 }
 
+//
+
 #cardDeck {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -166,20 +168,15 @@
 }
 
 .card {
-  background-color: white;
-  color: #4e2277;
-  border: solid 1px white;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.cardBody {
   height: 100%;
 }
 
-.cardBody:hover {
-  background-color: #4e2277;
-  color: white;
+.cardBody {
+  background-color: white;
+
+  :hover > & {
+    background-color: #4e2277;
+  }
 }
 
 .cardImg {
@@ -194,26 +191,30 @@
   font-weight: bolder;
   margin: 5px;
   margin-top: 10px;
+  color: #4e2277;
+  :hover > & {
+    color: white;
+  }
 }
 
 .cardText {
   font-size: 15px;
+  color: #4e2277;
+  :hover > & {
+    color: white;
+  }
 }
 
 .cardHeader {
   float: right;
+  color: #4e2277;
 }
 
-// .videoContainer {
-//   position: relative;
-//   padding-top: 56.25%;
-// }
+a:link {
+  text-decoration: none;
+}
 
-// .video {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// }
+//
 
 .videoContainer {
   overflow: hidden;

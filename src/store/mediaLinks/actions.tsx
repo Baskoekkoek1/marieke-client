@@ -35,6 +35,13 @@ export function toggleAddLinkMode() {
   };
 }
 
+export function toggleDeleteLinkMode() {
+  return {
+    type: "TOGGLE_DELETE_LINK_MODE",
+    payload: null,
+  };
+}
+
 export const postMediaLink = (
   title: String,
   description: String,

@@ -1,6 +1,7 @@
 const initialState = {
   all_links: [],
   addLinkMode: false,
+  deleteLinkMode: false,
 };
 
 export default function reducer(state = initialState, action: any) {
@@ -15,6 +16,8 @@ export default function reducer(state = initialState, action: any) {
       };
     case "TOGGLE_ADD_LINK_MODE":
       return { ...state, addLinkMode: !state.addLinkMode };
+    case "TOGGLE_DELETE_LINK_MODE":
+      return { ...state, deleteLinkMode: !state.deleteLinkMode };
     default:
       return state;
   }
