@@ -47,9 +47,9 @@ export default function MediaPage() {
       {/* @ts-ignore */}
       {deleteLinkMode ? <DeleteAlert id={deleteLinkId} /> : null}
       {token && !addLinkMode ? (
-        <button onClick={() => dispatch(toggleAddLinkMode())}>
-          Link toevoegen
-        </button>
+        <Button variant="success" onClick={() => dispatch(toggleAddLinkMode())}>
+          + Link toevoegen
+        </Button>
       ) : null}
       <h1 className={styles.mediaPageTitle}>
         {isLoading ? null : "Marieke in de media"}
@@ -67,8 +67,9 @@ export default function MediaPage() {
                       className={styles.deleteLinkButton}
                       value={link.id}
                       onClick={deleteHandler}
+                      variant="danger"
                     >
-                      Verwijder
+                      - Verwijder
                     </Button>
                   ) : null}
                 </Card.Header>
