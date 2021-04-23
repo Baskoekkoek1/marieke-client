@@ -210,11 +210,39 @@
   color: #4e2277;
 }
 
-a:link {
+a a:hover {
   text-decoration: none;
 }
 
 //
+
+.deleteLinkButton {
+  margin: 5px;
+}
+
+// #deleteAlertContainer {
+//   position: relative;
+// }
+#deleteAlert {
+  margin: 0 auto;
+  position: relative;
+  border: solid 5px #4e2277;
+  max-width: 60vw;
+  min-height: 50vh;
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #deleteAlertButtonContainer {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 5px;
+  }
+}
 
 .videoContainer {
   overflow: hidden;

@@ -42,6 +42,20 @@ export function toggleDeleteLinkMode() {
   };
 }
 
+export function deleteLinkSuccess(id: number) {
+  return {
+    type: "DELETE_LINK_SUCCESS",
+    payload: id,
+  };
+}
+
+export const deleteLink = (id: any) => {
+  return async function thunk(dispatch: Function, getState: Function) {
+    const response = await axios.delete(`${apiUrl}/pages/links/${id.id}`);
+    dispatch(deleteLinkSuccess(response.data.id));
+  };
+};
+
 export const postMediaLink = (
   title: String,
   description: String,

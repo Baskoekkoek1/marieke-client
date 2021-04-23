@@ -4,6 +4,10 @@ const initialState = {
   deleteLinkMode: false,
 };
 
+type Link = {
+  id: number;
+};
+
 export default function reducer(state = initialState, action: any) {
   switch (action.type) {
     case "LINKS_FETCHED":
@@ -18,6 +22,12 @@ export default function reducer(state = initialState, action: any) {
       return { ...state, addLinkMode: !state.addLinkMode };
     case "TOGGLE_DELETE_LINK_MODE":
       return { ...state, deleteLinkMode: !state.deleteLinkMode };
+    case "DELETE_LINK_SUCCESS":
+      const linkId = action.payload;
+      const newLinks = state.all_links.filter(
+        (link: Link) => link.id !== linkId
+      );
+      return { ...state, all_links: newLinks };
     default:
       return state;
   }

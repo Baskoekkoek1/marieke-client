@@ -5,23 +5,36 @@ import styles from "../../index.module.scss";
 import { selectAppLoading } from "../../store/appState/selectors";
 import { selectToken } from "../../store/auth/selectors";
 import {
+  deleteLink,
   fetchMediaLinks,
   toggleAddLinkMode,
+  toggleDeleteLinkMode,
 } from "../../store/mediaLinks/actions";
 import {
   selectAddLinkMode,
   selectAllLinks,
+  selectDeleteLinkMode,
 } from "../../store/mediaLinks/selectors";
 import AddLinkForm from "./addLinkForm";
+import DeleteAlert from "./deleteAlert";
 
 export default function MediaPage() {
+  const [deleteLinkId, setDeleteLinkId] = useState(null);
+
   const addLinkMode = useSelector(selectAddLinkMode);
+  const deleteLinkMode = useSelector(selectDeleteLinkMode);
 
   const dispatch = useDispatch();
 
   const allLinks = useSelector(selectAllLinks);
   const isLoading = useSelector(selectAppLoading);
   const token = useSelector(selectToken);
+
+  const deleteHandler = (event: any) => {
+    dispatch(toggleDeleteLinkMode());
+    setDeleteLinkId(event.target.value);
+    console.log(deleteLinkId);
+  };
 
   useEffect(() => {
     dispatch(fetchMediaLinks());
@@ -31,6 +44,8 @@ export default function MediaPage() {
     <div>
       {/* @ts-ignore */}
       {addLinkMode ? <AddLinkForm /> : null}
+      {/* @ts-ignore */}
+      {deleteLinkMode ? <DeleteAlert id={deleteLinkId} /> : null}
       {token && !addLinkMode ? (
         <button onClick={() => dispatch(toggleAddLinkMode())}>
           Link toevoegen
@@ -44,12 +59,18 @@ export default function MediaPage() {
         {allLinks.map((link) => {
           return (
             <div key={link.id} className={styles.cardContainer}>
-              {/* <Button>Verwijder</Button> */}
-              <a href={link.link} className={styles.cardLink}>
-                <Card className={styles.card}>
-                  <Card.Header className={styles.cardHeader}>
-                    {link.tag}
-                  </Card.Header>
+              <Card className={styles.card}>
+                <Card.Header className={styles.cardHeader}>
+                  {link.tag}
+                  <Button
+                    className={styles.deleteLinkButton}
+                    value={link.id}
+                    onClick={deleteHandler}
+                  >
+                    Verwijder
+                  </Button>
+                </Card.Header>
+                <a href={link.link} className={styles.cardLink}>
                   <Card.Body className={styles.cardBody}>
                     <Card.Img
                       variant="top"
@@ -63,8 +84,8 @@ export default function MediaPage() {
                       {link.description}
                     </Card.Text>
                   </Card.Body>
-                </Card>
-              </a>
+                </a>
+              </Card>
             </div>
           );
         })}
