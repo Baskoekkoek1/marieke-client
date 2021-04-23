@@ -62,13 +62,15 @@ export default function MediaPage() {
               <Card className={styles.card}>
                 <Card.Header className={styles.cardHeader}>
                   {link.tag}
-                  <Button
-                    className={styles.deleteLinkButton}
-                    value={link.id}
-                    onClick={deleteHandler}
-                  >
-                    Verwijder
-                  </Button>
+                  {token ? (
+                    <Button
+                      className={styles.deleteLinkButton}
+                      value={link.id}
+                      onClick={deleteHandler}
+                    >
+                      Verwijder
+                    </Button>
+                  ) : null}
                 </Card.Header>
                 <a href={link.link} className={styles.cardLink}>
                   <Card.Body className={styles.cardBody}>
