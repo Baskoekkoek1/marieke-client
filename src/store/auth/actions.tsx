@@ -14,6 +14,13 @@ const tokenStillValid = (userWithoutToken: any) => ({
   payload: userWithoutToken,
 });
 
+const loginFailed = () => {
+  return {
+    type: "LOGIN_FAILED",
+    payload: null,
+  };
+};
+
 export function login(name: string, password: string) {
   return async function thunk(dispatch: Function, getState: Function) {
     try {
@@ -25,8 +32,10 @@ export function login(name: string, password: string) {
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);
+        dispatch(loginFailed());
       } else {
         console.log(error.message);
+        dispatch(loginFailed());
       }
     }
   };
@@ -37,7 +46,7 @@ export const userLogOut = () => ({ type: "LOGOUT" });
 export const getUserWithStoredToken = () => {
   return async (dispatch: Function, getState: Function) => {
     const token = selectToken(getState());
-    if (token === null) return;
+    if (token === null || token === "failed") return;
 
     try {
       const response = await axios.get(`${apiUrl}/auth/me`, {

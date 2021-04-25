@@ -13,6 +13,9 @@ export default (state = initialState, action: any) => {
     case "LOGOUT":
       localStorage.removeItem("token");
       return { ...initialState, token: null };
+    case "LOGIN_FAILED": {
+      return { ...state, token: "failed" };
+    }
     default:
       return state;
   }
