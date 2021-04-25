@@ -20,6 +20,14 @@ export default function Login() {
     setPassword("");
   }
 
+  function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter") {
+      dispatch(login(name, password));
+      setName("");
+      setPassword("");
+    }
+  }
+
   useEffect(() => {
     if (token !== null) {
       history.push("/");
@@ -46,6 +54,7 @@ export default function Login() {
           <Form.Control
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            onKeyPress={handleKeyPress}
             type="password"
             placeholder="Password"
             required
