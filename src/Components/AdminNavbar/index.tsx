@@ -29,6 +29,7 @@ export default function () {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/media">Media</Nav.Link>
+            <Nav.Link href="/changepass">Verander wachtwoord</Nav.Link>
           </Nav>
           <Button
             onClick={() => dispatch(userLogOut())}
