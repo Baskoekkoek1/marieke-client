@@ -16,6 +16,7 @@ import Login from "./Components/Login";
 import { selectToken } from "./store/auth/selectors";
 import { getUserWithStoredToken } from "./store/auth/actions";
 import AdminNavbar from "./Components/AdminNavbar";
+import ChangePassword from "./Components/ChangePassword";
 
 function App() {
   const isLoading = useSelector(selectAppLoading);
@@ -26,7 +27,7 @@ function App() {
     dispatch(getUserWithStoredToken());
   });
 
-  const adminNavbar = token ? <AdminNavbar /> : null;
+  const adminNavbar = token && token !== "failed" ? <AdminNavbar /> : null;
 
   return (
     <div className="App">
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/" component={MainContent} />
         <Route path="/media" component={MediaPage} />
         <Route path="/login" component={Login} />
+        <Route path="/changepass" component={ChangePassword} />
       </Switch>
       {isLoading ? <Loading /> : <Footer />}
     </div>

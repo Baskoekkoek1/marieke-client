@@ -21,6 +21,27 @@ const loginFailed = () => {
   };
 };
 
+const currentPasswordFail = () => {
+  return {
+    type: "CURRENT_PASSWORD_FAIL",
+    payload: null,
+  };
+};
+
+export const checkPasswordFail = () => {
+  return {
+    type: "CHECK_PASSWORD_FAIL",
+    payload: null,
+  };
+};
+
+const changePasswordSucces = () => {
+  return {
+    type: "CHANGE_PASSWORD_SUCCESS",
+    payload: null,
+  };
+};
+
 export function login(name: string, password: string) {
   return async function thunk(dispatch: Function, getState: Function) {
     try {
@@ -67,16 +88,18 @@ export const getUserWithStoredToken = () => {
 
 export const changePassword = (
   password: string | undefined,
-  id: number | undefined
+  id: number | undefined,
+  currentPassword: string | undefined
 ) => {
   return async (dispatch: Function, getState: Function) => {
     try {
       const { token } = selectAdmin(getState());
       const response = await axios.put(
-        `${apiUrl}/admin/changepass`,
+        `${apiUrl}/auth/changepass`,
         {
           password,
           id,
+          currentPassword,
         },
         {
           headers: {
@@ -84,9 +107,14 @@ export const changePassword = (
           },
         }
       );
-      console.log(response);
+      console.log("response", response);
+      if (response.data === "Current password incorrect") {
+        dispatch(currentPasswordFail());
+      } else {
+        dispatch(changePasswordSucces());
+      }
     } catch (error) {
-      console.log("error", error);
+      console.log("error", error.message);
     }
   };
 };

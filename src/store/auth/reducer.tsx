@@ -1,6 +1,7 @@
 const initialState = {
   name: null,
   token: localStorage.getItem("token"),
+  passwordMessage: null,
 };
 
 export default (state = initialState, action: any) => {
@@ -15,6 +16,19 @@ export default (state = initialState, action: any) => {
       return { ...initialState, token: null };
     case "LOGIN_FAILED": {
       return { ...state, token: "failed" };
+    }
+    case "CHANGE_PASSWORD_SUCCESS": {
+      return { ...state, passwordMessage: "Nieuw wachtwoord opgeslagen." };
+    }
+    case "CURRENT_PASSWORD_FAIL": {
+      return { ...state, passwordMessage: "Huidig wachtwoord onjuist." };
+    }
+    case "CHECK_PASSWORD_FAIL": {
+      return {
+        ...state,
+        passwordMessage:
+          "Nieuw wachtwoord en herhaald wachtwoord komen niet overeen.",
+      };
     }
     default:
       return state;
