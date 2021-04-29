@@ -1,6 +1,8 @@
 import axios from "axios";
+import { useSelector } from "react-redux";
 import { apiUrl } from "../../config/constants";
 import { appDoneLoading, appLoading } from "../appState/actions";
+import { selectAdmin } from "../auth/selectors";
 
 export type LinksData = { links: object[] };
 
@@ -11,6 +13,11 @@ export function mediaLinks(data: LinksData) {
   };
 }
 
+export const postMediaLinkSuccess = (link: Object) => ({
+  type: "POST_LINK_SUCCESS",
+  payload: link,
+});
+
 export function fetchMediaLinks() {
   return async function thunk(dispatch: Function, getState: Function) {
     dispatch(appLoading());
@@ -20,3 +27,54 @@ export function fetchMediaLinks() {
     dispatch(appDoneLoading());
   };
 }
+
+export function toggleAddLinkMode() {
+  return {
+    type: "TOGGLE_ADD_LINK_MODE",
+    payload: null,
+  };
+}
+
+export function toggleDeleteLinkMode() {
+  return {
+    type: "TOGGLE_DELETE_LINK_MODE",
+    payload: null,
+  };
+}
+
+export function deleteLinkSuccess(id: number) {
+  return {
+    type: "DELETE_LINK_SUCCESS",
+    payload: id,
+  };
+}
+
+export const deleteLink = (id: any) => {
+  return async function thunk(dispatch: Function, getState: Function) {
+    const response = await axios.delete(`${apiUrl}/pages/links/${id.id}`);
+    dispatch(deleteLinkSuccess(response.data.id));
+  };
+};
+
+export const postMediaLink = (
+  title: String,
+  description: String,
+  tag: String,
+  link: String,
+  imgLink: String
+) => {
+  return async (dispatch: Function, getState: Function) => {
+    console.log("TEST_ACTION", title, description, tag, link, imgLink);
+    const { token } = selectAdmin(getState());
+    const response = await axios.post(
+      `${apiUrl}/pages/medialink`,
+      { title, description, tag, link, imgLink },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    dispatch(postMediaLinkSuccess(response.data));
+  };
+};

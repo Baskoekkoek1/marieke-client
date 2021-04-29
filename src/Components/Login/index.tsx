@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Form } from "react-bootstrap";
+import { Alert, Button, Col, Container, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../../store/auth/actions";
@@ -8,6 +8,7 @@ import { selectToken } from "../../store/auth/selectors";
 export default function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+
   const token = useSelector(selectToken);
 
   const dispatch = useDispatch();
@@ -20,8 +21,16 @@ export default function Login() {
     setPassword("");
   }
 
+  function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter") {
+      dispatch(login(name, password));
+      setName("");
+      setPassword("");
+    }
+  }
+
   useEffect(() => {
-    if (token !== null) {
+    if (token !== null && token !== "failed") {
       history.push("/");
     }
   });
@@ -30,6 +39,9 @@ export default function Login() {
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h1 className="mt-5 mb-5">Login</h1>
+        {token === "failed" ? (
+          <Alert variant="danger">Naam en/of wachtwoord onjuist.</Alert>
+        ) : null}
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Naam</Form.Label>
           <Form.Control
@@ -46,6 +58,7 @@ export default function Login() {
           <Form.Control
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            onKeyPress={handleKeyPress}
             type="password"
             placeholder="Password"
             required

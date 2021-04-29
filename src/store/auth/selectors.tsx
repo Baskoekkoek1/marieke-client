@@ -3,6 +3,7 @@ type State = {
     name: string;
     token: string;
     id: number;
+    passwordMessage: string;
   };
 };
 

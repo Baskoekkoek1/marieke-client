@@ -7,7 +7,7 @@
 #header {
   text-align: left;
   margin: 30px;
-  min-height: 20vh;
+  min-height: 7vh;
 }
 
 #siteTitle {
@@ -46,13 +46,14 @@
   font-size: 50px;
   font-weight: bolder;
   color: #4e2277;
+  margin: 2rem;
 }
 
 .mediaPageTitle {
   font-size: 50px;
   font-weight: bolder;
   color: #4e2277;
-  margin-top: 75px;
+  // margin-top: 75px;
 }
 
 #contentContainer {
@@ -78,7 +79,7 @@
 
 #voltInfo {
   background-color: #4e2277;
-  min-height: 290px;
+  min-height: 30vh;
 }
 
 #voltContainer {
@@ -107,6 +108,11 @@
   padding: 25px;
 }
 
+#buttonContainer {
+  padding: 10px;
+  margin: 1px;
+}
+
 .voltButton {
   display: inline-block;
   vertical-align: middle;
@@ -119,6 +125,10 @@
   padding: 10px 40px;
   margin: 10px;
   border-radius: 40px;
+  text-align: center;
+  p {
+    margin-top: 1rem;
+  }
 }
 
 .voltButton:hover {
@@ -138,6 +148,9 @@
   padding: 10px 40px;
   margin: 10px;
   border-radius: 40px;
+  p {
+    margin-top: 1rem;
+  }
 }
 
 .button:hover {
@@ -145,58 +158,104 @@
   color: #4e2277;
 }
 
+//
+
 #cardDeck {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-gap: 0.5rem;
+  grid-gap: 25px 0px;
+  margin: 2rem;
 }
 
 .card {
-  flex: 1;
-  margin: 10px;
-  background-color: white;
-  padding: 15px;
-  color: #4e2277;
-  border: solid 1px black;
-  display: inline-block;
-  text-decoration: none;
+  height: 100%;
 }
 
-.card:hover {
-  color: white;
-  background-color: #4e2277;
+.cardBody {
+  background-color: white;
+  height: 100%;
+
+  :hover > & {
+    background-color: #4e2277;
+  }
 }
 
 .cardImg {
   max-height: 20vh;
-  max-width: 20vw;
+  max-width: 10vw;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .cardTitle {
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: bolder;
   margin: 5px;
   margin-top: 10px;
+  color: #4e2277;
+  :hover > & {
+    color: white;
+  }
 }
 
 .cardText {
-  font-size: 20px;
+  font-size: 15px;
+  color: #4e2277;
+  :hover > & {
+    color: white;
+  }
 }
 
 .cardHeader {
   float: right;
+  color: #4e2277;
 }
 
-// .videoContainer {
-//   position: relative;
-//   padding-top: 56.25%;
-// }
+.cardLink {
+  height: 100%;
+  &:hover {
+    text-decoration: none;
+  }
+}
 
-// .video {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// }
+//
+
+.deleteLinkButton {
+  margin: 5px;
+}
+
+#deleteAlertContainer {
+  background-color: #4e2277;
+  color: white;
+  border-style: solid;
+  border-color: black;
+  position: sticky;
+  top: 25%;
+  left: 25%;
+  max-width: 50vw;
+  z-index: 1;
+}
+
+#deleteAlert {
+  margin: 0 auto;
+  position: relative;
+  border: solid 5px #4e2277;
+  max-width: 60vw;
+  min-height: 50vh;
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #deleteAlertButtonContainer {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 5px;
+  }
+}
 
 .videoContainer {
   overflow: hidden;
